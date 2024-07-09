@@ -1,5 +1,5 @@
 import {DailyProvider, useDaily} from '@daily-co/daily-react';
-import React, {useEffect, useRef, useState} from 'react';
+import {useEffect, useRef, useState} from 'react';
 
 const DailyAudioCall = ({ websocketUrl, agent_id }) => {
     const callObject = useDaily();
@@ -144,7 +144,7 @@ const DailyAudioCall = ({ websocketUrl, agent_id }) => {
 };
 
 const App = ({ agentId, accessToken }) => {
-    const websocketUrl = `${process.env.REACT_APP_WEBSOCKET_ENDPOINT}/${agentId}?auth_token=${accessToken}&user_agent=dashboard&enforce_streaming=true`;
+    const websocketUrl = `${import.meta.env.VITE_REACT_APP_WEBSOCKET_ENDPOINT}/${agentId}?auth_token=${accessToken}&user_agent=dashboard&enforce_streaming=true&provider=daily`;
 
     return (
         <DailyProvider>
